@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-public class AppTest extends App{
+public class loginPageTest extends App{
 
 	@AfterTest
 	public void afterTesting() {
