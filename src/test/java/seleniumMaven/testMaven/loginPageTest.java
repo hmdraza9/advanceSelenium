@@ -1,34 +1,41 @@
 package seleniumMaven.testMaven;
 
+import org.testng.annotations.Test;
+import java.io.IOException;
+
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-
-public class loginPageTest extends App{
-
+public class loginPageTest extends testBase{
+	
+	
+	String url = "http://www.demo.guru99.com/v4/";
+	PropertyReaderClass pr;
+	
 	@AfterTest
 	public void afterTesting() {
 		BrowserQuit();
 	}
 	
     @Test
-    public void method1()
+    public void loginGuru99Demo() throws IOException, InterruptedException
     {
-        System.out.println("method1");
+    	pr = new PropertyReaderClass();
+    	driver.get(url);
+    	driver.findElement(By.name("uid")).sendKeys(pr.propReader("guru99user"));
+    	driver.findElement(By.name("btnReset")).click();
+    	driver.findElement(By.name("uid")).sendKeys(pr.propReader("guru99user"));
+    	driver.findElement(By.name("password")).sendKeys(pr.propReader("password"));
+    	driver.findElement(By.name("btnLogin")).click();   	
     }
 
 	
-    @Test
-    public void afterMethodQuit()
-    {
-        System.out.println("afterMethodQuit");
-        driver.quit();
-    }
 
 	@BeforeTest
 	public void configMethod() {
     	BrowserInitSetup();
+		System.out.println("I am in loginPage page.");
 	}
 	
     @Test

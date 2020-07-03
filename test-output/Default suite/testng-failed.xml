@@ -3,18 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumMaven.testMaven.AppTest">
+      <class name="seleniumMaven.testMaven.loginPageTest">
         <methods>
-          <include name="assertMethod"/>
-          <include name="method3"/>
-          <include name="afterMethodQuit"/>
+          <include name="loginGuru99Demo"/>
           <include name="afterTesting"/>
-          <include name="method1"/>
-          <include name="method4"/>
           <include name="configMethod"/>
-          <include name="method2"/>
         </methods>
-      </class> <!-- seleniumMaven.testMaven.AppTest -->
+      </class> <!-- seleniumMaven.testMaven.loginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

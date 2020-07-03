@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Test Maven Suite">
+  <test name="TestLogin">
+    <packages>
+    	<package name="seleniumMaven.testMaven.*" />
+    </packages>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
