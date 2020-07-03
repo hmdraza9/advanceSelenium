@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-07-03T10:50:55Z" name="Surefire suite" finished-at="2020-07-03T10:51:06Z" duration-ms="10560">
+    <groups>
+    </groups>
+    <test started-at="2020-07-03T10:50:55Z" name="Surefire test" finished-at="2020-07-03T10:51:06Z" duration-ms="10560">
+      <class name="seleniumMaven.testMaven.AppTest">
+        <test-method is-config="true" signature="configMethod()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:20:55Z" name="configMethod" finished-at="2020-07-03T16:21:05Z" duration-ms="9919" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configMethod -->
+        <test-method signature="afterMethodQuit()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:05Z" name="afterMethodQuit" finished-at="2020-07-03T16:21:06Z" duration-ms="625" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethodQuit -->
+        <test-method signature="assertMethod()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:06Z" name="assertMethod" finished-at="2020-07-03T16:21:06Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertMethod -->
+        <test-method signature="method1()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:06Z" name="method1" finished-at="2020-07-03T16:21:06Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method1 -->
+        <test-method signature="method2()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:06Z" name="method2" finished-at="2020-07-03T16:21:06Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method2 -->
+        <test-method signature="method3()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:06Z" name="method3" finished-at="2020-07-03T16:21:06Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method3 -->
+        <test-method signature="method4()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:06Z" name="method4" finished-at="2020-07-03T16:21:06Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method4 -->
+        <test-method is-config="true" signature="afterTesting()[pri:0, instance:seleniumMaven.testMaven.AppTest@df27fae]" started-at="2020-07-03T16:21:06Z" name="afterTesting" finished-at="2020-07-03T16:21:06Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTesting -->
+      </class> <!-- seleniumMaven.testMaven.AppTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
