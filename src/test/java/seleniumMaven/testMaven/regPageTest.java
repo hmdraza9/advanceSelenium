@@ -22,9 +22,8 @@ public class regPageTest extends testBase {
 	}
 
 	@BeforeTest
-	public void configMethod() {
+	public void configMethod() throws InterruptedException {
     	BrowserInitSetup();
-		System.out.println("I am in registration page.");
 	}
 	
     @Test
@@ -32,9 +31,13 @@ public class regPageTest extends testBase {
     {
     	pr = new PropertyReaderClass();
     	Thread.sleep(5000);
+    	System.out.println("regPageTest, Title: "+driver.getTitle());
+    	System.out.println("Size of uid: "+driver.findElements(By.name("uid")).size());
+    	System.out.println("Size of password: "+driver.findElements(By.name("password")).size());
     	driver.findElement(By.name("uid")).sendKeys(pr.propReader("guru99user"));
     	driver.findElement(By.name("password")).sendKeys(pr.propReader("password"));
-    	driver.findElement(By.name("btnLogin")).click();  
+    	driver.findElement(By.name("btnLogin")).click();
+    	System.out.println("regPageTest logged in, Title: "+driver.getTitle());
     	Assert.assertTrue(driver.findElements(By.linkText("Log out")).size()>0);
     	Assert.assertTrue(driver.getTitle().contains(titleText));
     }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-07-03T20:38:44Z" name="Command line suite" finished-at="2020-07-03T20:39:05Z" duration-ms="21246">
+  <suite started-at="2020-07-03T21:31:44Z" name="Command line suite" finished-at="2020-07-03T21:32:14Z" duration-ms="30847">
     <groups>
     </groups>
-    <test started-at="2020-07-03T20:38:44Z" name="Command line test" finished-at="2020-07-03T20:39:05Z" duration-ms="21246">
+    <test started-at="2020-07-03T21:31:44Z" name="Command line test" finished-at="2020-07-03T21:32:14Z" duration-ms="30847">
       <class name="seleniumMaven.testMaven.regPageTest">
-        <test-method signature="landingPageTest()[pri:0, instance:seleniumMaven.testMaven.regPageTest@44c8afef]" started-at="2020-07-04T02:09:05Z" name="landingPageTest" finished-at="2020-07-04T02:09:05Z" duration-ms="25" status="FAIL">
+        <test-method signature="landingPageTest()[pri:0, instance:seleniumMaven.testMaven.regPageTest@5f3a4b84]" started-at="2020-07-04T03:02:09Z" name="landingPageTest" finished-at="2020-07-04T03:02:14Z" duration-ms="5060" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"*[name='uid']"}
@@ -16,8 +16,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
 System info: host: 'ABDUL-HAMID-MJK', ip: '192.168.0.15', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '13.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.116, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\ABDULH~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56859}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 9fe0a25d7896830f894ae3a97d7bdb84
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.116, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\ABDULH~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61643}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: c3b607445abe7e94023830d502ba5d9f
 *** Element info: {Using=name, value=uid}]]>
             </message>
             <full-stacktrace>
@@ -27,8 +27,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
 System info: host: 'ABDUL-HAMID-MJK', ip: '192.168.0.15', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '13.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.116, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\ABDULH~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56859}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 9fe0a25d7896830f894ae3a97d7bdb84
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.116, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\ABDULH~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61643}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: c3b607445abe7e94023830d502ba5d9f
 *** Element info: {Using=name, value=uid}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -45,7 +45,7 @@ Session ID: 9fe0a25d7896830f894ae3a97d7bdb84
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:400)
 	at org.openqa.selenium.By$ByName.findElement(By.java:284)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at seleniumMaven.testMaven.regPageTest.landingPageTest(regPageTest.java:34)
+	at seleniumMaven.testMaven.regPageTest.landingPageTest(regPageTest.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -89,39 +89,23 @@ Session ID: 9fe0a25d7896830f894ae3a97d7bdb84
         </test-method> <!-- landingPageTest -->
       </class> <!-- seleniumMaven.testMaven.regPageTest -->
       <class name="seleniumMaven.testMaven.loginPageTest">
-        <test-method is-config="true" signature="configMethod()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:08:44Z" name="configMethod" finished-at="2020-07-04T02:08:53Z" duration-ms="8579" status="PASS">
+        <test-method is-config="true" signature="configMethod()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@5bcea91b]" started-at="2020-07-04T03:01:44Z" name="configMethod" finished-at="2020-07-04T03:01:54Z" duration-ms="10510" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configMethod -->
-        <test-method is-config="true" signature="configMethod()[pri:0, instance:seleniumMaven.testMaven.regPageTest@44c8afef]" started-at="2020-07-04T02:08:53Z" name="configMethod" finished-at="2020-07-04T02:09:01Z" duration-ms="8470" status="PASS">
+        <test-method is-config="true" signature="configMethod()[pri:0, instance:seleniumMaven.testMaven.regPageTest@5f3a4b84]" started-at="2020-07-04T03:01:54Z" name="configMethod" finished-at="2020-07-04T03:02:05Z" duration-ms="10824" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configMethod -->
-        <test-method signature="assertMethod()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:09:01Z" name="assertMethod" finished-at="2020-07-04T02:09:01Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- assertMethod -->
-        <test-method signature="loginGuru99Demo()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:09:01Z" name="loginGuru99Demo" finished-at="2020-07-04T02:09:05Z" duration-ms="3490" status="PASS">
+        <test-method signature="loginGuru99Demo()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@5bcea91b]" started-at="2020-07-04T03:02:05Z" name="loginGuru99Demo" finished-at="2020-07-04T03:02:09Z" duration-ms="3789" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginGuru99Demo -->
-        <test-method signature="method2()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:09:05Z" name="method2" finished-at="2020-07-04T02:09:05Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- method2 -->
-        <test-method signature="method3()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:09:05Z" name="method3" finished-at="2020-07-04T02:09:05Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- method3 -->
-        <test-method signature="method4()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:09:05Z" name="method4" finished-at="2020-07-04T02:09:05Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- method4 -->
-        <test-method is-config="true" signature="afterTesting()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@4923ab24]" started-at="2020-07-04T02:09:05Z" name="afterTesting" finished-at="2020-07-04T02:09:05Z" duration-ms="662" status="PASS">
+        <test-method is-config="true" signature="afterTesting()[pri:0, instance:seleniumMaven.testMaven.loginPageTest@5bcea91b]" started-at="2020-07-04T03:02:14Z" name="afterTesting" finished-at="2020-07-04T03:02:14Z" duration-ms="634" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTesting -->
-        <test-method is-config="true" signature="afterTesting()[pri:0, instance:seleniumMaven.testMaven.regPageTest@44c8afef]" started-at="2020-07-04T02:09:05Z" name="afterTesting" finished-at="2020-07-04T02:09:05Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterTesting()[pri:0, instance:seleniumMaven.testMaven.regPageTest@5f3a4b84]" started-at="2020-07-04T03:02:14Z" name="afterTesting" finished-at="2020-07-04T03:02:14Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTesting -->

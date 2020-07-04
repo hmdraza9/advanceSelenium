@@ -2,7 +2,7 @@
 <suite name="Test Maven Suite">
   <test name="TestLogin">
     <packages>
-    	<package name="seleniumMaven.testMaven.*" />
+    	<package name="seleniumMaven.testMaven" />
     </packages>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

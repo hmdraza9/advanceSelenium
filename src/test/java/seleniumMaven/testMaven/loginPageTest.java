@@ -23,42 +23,17 @@ public class loginPageTest extends testBase{
     {
     	pr = new PropertyReaderClass();
     	driver.get(url);
-    	driver.findElement(By.name("uid")).sendKeys(pr.propReader("guru99user"));
-    	driver.findElement(By.name("btnReset")).click();
+    	System.out.println("loginPageTest, Title: "+driver.getTitle());
     	driver.findElement(By.name("uid")).sendKeys(pr.propReader("guru99user"));
     	driver.findElement(By.name("password")).sendKeys(pr.propReader("password"));
-    	driver.findElement(By.name("btnLogin")).click();   	
+    	driver.findElement(By.name("btnLogin")).click();
+    	System.out.println("loginPageTest logged in, Title: "+driver.getTitle());
     }
 
 	
 
 	@BeforeTest
-	public void configMethod() {
+	public void configMethod() throws InterruptedException {
     	BrowserInitSetup();
-		System.out.println("I am in loginPage page.");
 	}
-	
-    @Test
-    public void method2()
-    {
-        System.out.println("method2");
-    }
-
-    @Test
-    public void method3()
-    {
-        System.out.println("method3");
-    }
-
-    @Test
-    public void method4()
-    {
-        System.out.println("method4");
-    }
-
-    @Test
-    public void assertMethod()
-    {
-        System.out.println("assertMethod");
-    }
 }
