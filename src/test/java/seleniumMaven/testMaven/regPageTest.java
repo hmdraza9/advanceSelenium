@@ -30,7 +30,7 @@ public class regPageTest extends testBase {
     public void landingPageTest() throws IOException, InterruptedException
     {
     	pr = new PropertyReaderClass();
-    	Thread.sleep(5000);
+    	Thread.sleep(5000); 
     	System.out.println("regPageTest, Title: "+driver.getTitle());
     	System.out.println("Size of uid: "+driver.findElements(By.name("uid")).size());
     	System.out.println("Size of password: "+driver.findElements(By.name("password")).size());
