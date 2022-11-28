@@ -17,8 +17,9 @@ public class FileOps extends testBase {
 
 	static boolean isProp = true;
 
-	public static List<String> readPropFileInHashMap(String filePath) throws IOException {
+	public static List<String> readPropFileAsList(String filePath) throws IOException {
 
+		System.out.println("In readPropFileAsList");
 		List<String> propList = new ArrayList<String>();
 		isProp = FilenameUtils.getExtension(filePath).contentEquals("properties");
 		if (isProp) {
@@ -26,7 +27,7 @@ public class FileOps extends testBase {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String st;
 
-			while (((st = br.readLine()) != null)&&(st.split("=").length==2)) {
+			while ((st = br.readLine()) != null) {
 
 				propList.add(st);
 
@@ -55,9 +56,12 @@ public class FileOps extends testBase {
 		
 		while(it.hasNext()) {
 			
-			String[] tempString = it.next().toString().split("=");
+			String itNext = it.next();
 			
-			p.setProperty(tempString[0],tempString[1]);
+			if (itNext.split("=").length>1) {
+				String[] tempString = itNext.toString().split("=");
+				p.setProperty(tempString[0], tempString[1]);
+			}
 			
 		}
 		p.store(writer,"write a file");

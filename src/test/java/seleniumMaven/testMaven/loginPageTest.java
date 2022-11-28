@@ -24,12 +24,13 @@ public class loginPageTest extends testBase{
     {
 
 		System.out.println("In Test");
-    	driver.get(PropertyReaderClass.propReader("guru99url"));
-    	System.out.println("loginPageTest, Title: "+driver.getTitle());
-    	driver.findElement(By.name("uid")).sendKeys(PropertyReaderClass.propReader("guru99user"));
-    	driver.findElement(By.name("password")).sendKeys(PropertyReaderClass.propReader("guru99password"));
+    	driver.get(PropertyReaderClass.staticDataPropReader("guru99url"));
+    	driver.findElement(By.name("uid")).sendKeys(PropertyReaderClass.dataPropReader("guru99user"));
+    	driver.findElement(By.name("password")).sendKeys(PropertyReaderClass.dataPropReader("guru99password"));
     	driver.findElement(By.name("btnLogin")).click();
     	System.out.println("loginPageTest logged in, Title: "+driver.getTitle());
+    	
+//    	Assert.assertEquals(false, false);
     }
 
 	
@@ -37,14 +38,14 @@ public class loginPageTest extends testBase{
 	@BeforeTest
 	public void configMethod() throws InterruptedException, IOException, ParseException {
 		System.out.println("In Before test");
-    	if(PropertyReaderClass.guru99CredsValidator(BrowserInitSetup() , PropertyReaderClass.filePath)) {
+    	if(PropertyReaderClass.guru99CredsValidator(BrowserInitSetup() , dataFilePath)) {
     		
-    		String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistrationDummy();
-    		List<String> propList = FileOps.readPropFileInHashMap(PropertyReaderClass.filePath);
+    		String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistration();
+    		List<String> propList = FileOps.readPropFileAsList(dataFilePath);
     		propList.add("guru99user="+guru99NewCreds[0]);
     		propList.add("guru99password="+guru99NewCreds[1]);
     		propList.add("guruCredsDate="+dateFunction());
-    		FileOps.savePropNewFile(PropertyReaderClass.filePath,propList);
+    		FileOps.savePropNewFile(dataFilePath,propList);
     		
     	}
 	}

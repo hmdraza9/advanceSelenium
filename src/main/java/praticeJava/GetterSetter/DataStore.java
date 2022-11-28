@@ -1,4 +1,4 @@
-package seleniumMaven.testMaven;
+package praticeJava.GetterSetter;
 
 public class DataStore {
 

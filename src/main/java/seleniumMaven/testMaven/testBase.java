@@ -17,7 +17,8 @@ public class testBase {
 	public static PropertyReaderClass pr;
 	public static String classPath = System.getProperty("user.dir");
 
-	public static String filePath = classPath + "\\Data\\dataFile.properties";
+	public static String dataFilePath = classPath + "\\Data\\dataFile.properties";
+	public static String siteStatDataFilePath = classPath + "\\siteStaticData\\siteStaticData.properties";
 
 	public static WebDriver BrowserInitSetup() throws InterruptedException {
 		co = new ChromeOptions();
