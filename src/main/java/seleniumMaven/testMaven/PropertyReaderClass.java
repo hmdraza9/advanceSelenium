@@ -4,15 +4,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class PropertyReaderClass extends testBase {
 
-	public static String filePath = classPath + "\\Data\\dataFile.properties";
 
 	public static String propReader(String propKey) throws IOException {
 		// TODO Auto-generated method stub
@@ -24,25 +23,29 @@ public class PropertyReaderClass extends testBase {
 
 	}
 
-	public static boolean guru99CredsValidator(String filePath) throws IOException, ParseException {
+	public static boolean guru99CredsValidator(WebDriver driver , String filePath) throws IOException, ParseException {
 
 		System.out.println("In guru99CredsValidator");
 		String propGuru99CredsDate = propReader("gutuCredsDate");
-		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-		Calendar c1 = Calendar.getInstance();
-		Calendar c2 = Calendar.getInstance();
-		c1.setTime(sdf.parse(propGuru99CredsDate));
-		c1.add(Calendar.DATE, 20);
-		String c1Date = c1.getTime().toString().substring(4, 9) + c1.getTime().toString().substring(24, 27);
-		String c2Date = c2.getTime().toString().substring(4, 9) + c2.getTime().toString().substring(24, 27);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-		System.out.println(c1.getTime());
-		System.out.println(c2.getTime());
+		System.out.println("propGuru99CredsDate: "+propGuru99CredsDate);
 		
-		Date d1 = sdf.parse(c1Date);
-		Date d2 = sdf.parse(c2Date);
+		int diffDays = (int) ((System.currentTimeMillis() - sdf.parse(propGuru99CredsDate).getTime())/(1000*3600*24));
 
-		return (d1.compareTo(d2) >= 0);
+		System.out.println("diffDays: "+diffDays);
+		
+		if(diffDays>19) {
+			
+			String[] newCreds = guru99NewRegistrationDummy();
+			List<String> oldFileProps = FileOps.readPropFileInHashMap(filePath);
+			oldFileProps.add(newCreds[0]+"="+newCreds[1]);
+			System.out.println("oldFileProps: "+oldFileProps);
+			return true;
+			
+		}
+		
+		return false;
 	}
 
 	public static String[] guru99NewRegistration() throws IOException {
@@ -61,6 +64,17 @@ public class PropertyReaderClass extends testBase {
 		guruNewCreds[1] = driver
 				.findElement(By.xpath("//table/tbody/tr/td[text()='Password :']/parent::tr/td[2]")).getText().trim();
 
+		return guruNewCreds;
+	}
+
+	public static String[] guru99NewRegistrationDummy() throws IOException {
+
+		
+		String[] guruNewCreds = new String[2];
+
+		guruNewCreds[0] = "testUser";
+		guruNewCreds[1] = "testPass";
+		
 		return guruNewCreds;
 	}
 

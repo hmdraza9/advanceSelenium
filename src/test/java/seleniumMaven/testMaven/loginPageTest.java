@@ -2,7 +2,7 @@ package seleniumMaven.testMaven;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Map;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
@@ -37,15 +37,14 @@ public class loginPageTest extends testBase{
 	@BeforeTest
 	public void configMethod() throws InterruptedException, IOException, ParseException {
 		System.out.println("In Before test");
-    	BrowserInitSetup();
-    	if(!PropertyReaderClass.guru99CredsValidator(PropertyReaderClass.filePath)) {
+    	if(PropertyReaderClass.guru99CredsValidator(BrowserInitSetup() , PropertyReaderClass.filePath)) {
     		
-    		String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistration();
-    		Map<String, String> hm = FileOps.readPropFileInHashMap(PropertyReaderClass.filePath);
-    		hm.put("guru99user", guru99NewCreds[0]);
-    		hm.put("guru99password", guru99NewCreds[1]);
-    		hm.put("gutuCredsDate", dateFunction());
-    		FileOps.savePropNewFile(PropertyReaderClass.filePath,hm);
+    		String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistrationDummy();
+    		List<String> propList = FileOps.readPropFileInHashMap(PropertyReaderClass.filePath);
+    		propList.add("guru99user="+guru99NewCreds[0]);
+    		propList.add("guru99password="+guru99NewCreds[1]);
+    		propList.add("guruCredsDate="+dateFunction());
+    		FileOps.savePropNewFile(PropertyReaderClass.filePath,propList);
     		
     	}
 	}

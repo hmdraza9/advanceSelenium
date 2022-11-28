@@ -5,11 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 import java.util.Properties;
-import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -18,29 +17,28 @@ public class FileOps extends testBase {
 
 	static boolean isProp = true;
 
-	public static Map<String, String> readPropFileInHashMap(String filePath) throws IOException {
+	public static List<String> readPropFileInHashMap(String filePath) throws IOException {
 
-		Map<String, String> hm = new HashMap<String, String>();
+		List<String> propList = new ArrayList<String>();
 		isProp = FilenameUtils.getExtension(filePath).contentEquals("properties");
 		if (isProp) {
 			File file = new File(filePath);
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String st;
 
-			while ((st = br.readLine()) != null) {
+			while (((st = br.readLine()) != null)&&(st.split("=").length==2)) {
 
-				String[] temp = st.split("=");
-				hm.put(temp[0], temp[1]);
+				propList.add(st);
 
 			}
 			br.close();
 		}
-		FileUtils.copyFile(new File(filePath), new File(classPath + "\\Data\\DataBkp\\dataFile." + dateTimeFunction()));
+		FileUtils.copyFile(new File(filePath), new File(classPath + "\\Data\\DataBkp\\dataFile." + dateTimeFunction()+".properties"));
 
-		return hm;
+		return propList;
 	}
 
-	public static void savePropNewFile(String filePath, Map<String, String> hm) throws IOException {
+	public static void savePropNewFile(String filePath, List<String> propList) throws IOException {
 
 		System.out.println("In savePropNewFile");
 		FileReader reader = null;
@@ -52,12 +50,14 @@ public class FileOps extends testBase {
 		Properties p = new Properties();
 		p.load(reader);
 		
-		Set st = hm.entrySet();
-		Iterator it = st.iterator();
 		
-		for(Map.Entry entry : hm.entrySet()) {
+		Iterator<String> it = propList.iterator();
+		
+		while(it.hasNext()) {
 			
-			p.setProperty(entry.getKey().toString(), entry.getValue().toString());
+			String[] tempString = it.next().toString().split("=");
+			
+			p.setProperty(tempString[0],tempString[1]);
 			
 		}
 		p.store(writer,"write a file");

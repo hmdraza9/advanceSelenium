@@ -2,19 +2,24 @@ package seleniumMaven.testMaven;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class testBase {
+	
+
 
 	public static WebDriver driver;
 	public static ChromeOptions co;
 	public static PropertyReaderClass pr;
 	public static String classPath = System.getProperty("user.dir");
 
-	public static void BrowserInitSetup() throws InterruptedException {
+	public static String filePath = classPath + "\\Data\\dataFile.properties";
+
+	public static WebDriver BrowserInitSetup() throws InterruptedException {
 		co = new ChromeOptions();
 //    	co.addArguments("--headless");
 		System.out.println("Browser initialization");
@@ -22,6 +27,9 @@ public class testBase {
 		driver = new ChromeDriver(co);
 
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		return driver;
 
 	}
 
@@ -45,7 +53,7 @@ public class testBase {
 	}
 
 	public static String dateFunction() {
-		SimpleDateFormat sdfDate = new SimpleDateFormat("ddMMyyyy");
+		SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy");
 		Date now = new Date();
 		return sdfDate.format(now);
 	}
