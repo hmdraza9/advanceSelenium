@@ -34,7 +34,7 @@ public class regPageTest extends testBase {
     	System.out.println("regPageTest, Title: "+driver.getTitle());
     	System.out.println("Size of uid: "+driver.findElements(By.name("uid")).size());
     	System.out.println("Size of password: "+driver.findElements(By.name("password")).size());
-    	driver.findElement(By.name("uid")).sendKeys(PropertyReaderClass.dataPropReader("guru99user"));
+    	driver.findElement(By.name("uid")).sendKeys(PropertyReaderClass.staticDataPropReader("guru99user"));
     	driver.findElement(By.name("password")).sendKeys(PropertyReaderClass.dataPropReader("password"));
     	driver.findElement(By.name("btnLogin")).click();
     	System.out.println("regPageTest logged in, Title: "+driver.getTitle());
