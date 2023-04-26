@@ -1,0 +1,30 @@
+<Configuration name="ConfigTest" status="INFO" monitorInterval="5">
+	<Properties>
+		<Property name="filename">./logs</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="file" fileName="${filename}/logging.log" filePattern="${filename}/logs-%d{HH-mm-ss-SSS}.log">
+			<PatternLayout>
+				<pattern>%d %p %c{1.} [%t] %m%n</pattern>
+			</PatternLayout>
+			<SizeBasedTriggeringPolicy size="5 MB" />
+		</RollingFile>
+		<Console name="ABC" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{100} - %msg%n" />
+		</Console>
+
+	</Appenders>
+	<Loggers>
+		<Logger name="src.main.java.seleniumMaven.pages" level="INFO" additivity="false">
+			<AppenderRef ref="file" />
+			<AppenderRef ref="ABC" />
+		</Logger>
+		<Logger name="src.main.java.seleniumMaven.Utils" level="INFO" additivity="false">
+			<AppenderRef ref="file" />
+			<AppenderRef ref="ABC" />
+		</Logger>
+		<Root level="warn">
+			<AppenderRef ref="ABC" />
+		</Root>
+	</Loggers>
+</Configuration>

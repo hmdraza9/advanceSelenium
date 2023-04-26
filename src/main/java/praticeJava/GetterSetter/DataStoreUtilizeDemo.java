@@ -2,8 +2,8 @@ package praticeJava.GetterSetter;
 
 import java.io.IOException;
 
-import seleniumMaven.testMaven.FileOps;
-import seleniumMaven.testMaven.testBase;
+import seleniumMaven.Utils.FileOps;
+import seleniumMaven.Utils.testBase;
 
 public class DataStoreUtilizeDemo extends testBase{
 
