@@ -19,10 +19,6 @@
 			<AppenderRef ref="file" />
 			<AppenderRef ref="ABC" />
 		</Logger>
-		<Logger name="src.main.java.seleniumMaven.Utils" level="INFO" additivity="false">
-			<AppenderRef ref="file" />
-			<AppenderRef ref="ABC" />
-		</Logger>
 		<Root level="warn">
 			<AppenderRef ref="ABC" />
 		</Root>
