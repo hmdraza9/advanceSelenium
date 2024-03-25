@@ -45,7 +45,8 @@ public class loginPageTest extends testBase {
 
 	@BeforeTest
 	public void BeforeTest() throws InterruptedException, IOException, ParseException {
-		testBase.logger.info("loginPageTest logged in, Title: " + seleniumMaven.Utils.myDriverFactory.getDriver().getTitle());
+		testBase.logger
+				.info("loginPageTest logged in, Title: " + seleniumMaven.Utils.myDriverFactory.getDriver().getTitle());
 		if (PropertyReaderClass.guru99CredsValidator(myDriverFactory.getDriver(), dataFilePath)) {
 
 			String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistration();
@@ -57,14 +58,15 @@ public class loginPageTest extends testBase {
 
 		}
 	}
+
 	@AfterSuite
 	public void AfterSuite() {
 		BrowserQuit();
 	}
 
 	@BeforeSuite
-	public void BeforeSuite(){
+	public void BeforeSuite() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
-    	myDriverFactory.getDriver();
+		myDriverFactory.getDriver();
 	}
 }

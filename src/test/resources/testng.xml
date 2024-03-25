@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="TestLogin">
-    <classes>
-      <class name="seleniumMaven.pages.loginPageTest"/>
-    </classes>
-  </test> <!-- Test -->
-  <test name="TestReg">
-    <classes>
-      <class name="seleniumMaven.pages.regPageTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<test name="TestLogin">
+		<classes>
+			<class name="seleniumMaven.pages.loginPageTest" />
+		</classes>
+	</test>
+	<test name="TestReg">
+		<classes>
+			<class name="seleniumMaven.pages.regPageTest" />
+		</classes>
+	</test>
+</suite>
