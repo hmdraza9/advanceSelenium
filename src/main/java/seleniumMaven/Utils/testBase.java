@@ -11,8 +11,8 @@ public class testBase {
 	public static String classPath = System.getProperty("user.dir");
 	public static final Logger logger = LogManager.getLogger(testBase.class.getName());
 
-	public static String dataFilePath = classPath + "\\Data\\dataFile.properties";
-	public static String siteStatDataFilePath = classPath + "\\siteStaticData\\siteStaticData.properties";
+	public static String dataFilePath = classPath + "//Data//dataFile.properties";
+	public static String siteStatDataFilePath = classPath + "//siteStaticData//siteStaticData.properties";
 	public static String userHome = System.getProperty("user.home");
 
 
@@ -21,6 +21,7 @@ public class testBase {
 		logger.info("Browser closing");
 		myDriverFactory.getDriver().quit();
 	}// AfterClassMethod
+
 
 	public static String dateTimeFunction() {
 		logger.info(new Throwable().getStackTrace()[0].getMethodName());

@@ -1,5 +1,6 @@
 package seleniumMaven.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import seleniumMaven.Utils.testBase;
 
 public class regPageTest extends testBase {
 
+	public static final WebDriver driver = myDriverFactory.getDriver();
 	String headerText = "Guru99 Bank";
 	String titleText = "Guru99 Bank Manager HomePage";
 	PropertyReaderClass pr;
@@ -24,7 +26,7 @@ public class regPageTest extends testBase {
 		pr = new PropertyReaderClass();
 		Thread.sleep(5000);
 		System.out.println("regPageTest logged in, Title: " + myDriverFactory.getDriver().getTitle());
-		AssertJUnit.assertTrue(myDriverFactory.getDriver().findElements(By.linkText("Log out")).size() > 0);
-		AssertJUnit.assertTrue(myDriverFactory.getDriver().getTitle().contains(titleText));
+		AssertJUnit.assertTrue(driver.findElements(By.linkText("Log out")).size() > 0);
+		AssertJUnit.assertTrue(driver.getTitle().contains(titleText));
 	}
 }

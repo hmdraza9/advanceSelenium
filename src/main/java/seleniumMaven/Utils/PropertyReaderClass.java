@@ -9,8 +9,13 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static org.openqa.selenium.support.locators.RelativeLocator.with;
+
 public class PropertyReaderClass extends testBase {
 
+	public static final WebDriver driver = myDriverFactory.getDriver();
+	
+	
 	public static String dataPropReader(String propKey) throws IOException {
 		// TODO Auto-generated method stub
 
@@ -58,27 +63,26 @@ public class PropertyReaderClass extends testBase {
 		System.out.println("In guru99NewRegistration");
 
 		String[] guruNewCreds = new String[2];
-		myDriverFactory.getDriver().navigate().to(PropertyReaderClass.staticDataPropReader("guru99url"));
+		driver.navigate().to("https://www.google.com/search?q="+PropertyReaderClass.staticDataPropReader("guru99url"));
 		myDriverFactory.getDriver().findElement(By.xpath("//a[contains(@href,'http') and contains(@href,'guru99') and text()='here']"))
 				.click();
-//		if (myDriverFactory.getDriver().findElements(By.xpath("//div[@id='dismiss-button' and @aria-label='Close ad']")).size() > 0) {
-//			myDriverFactory.getDriver().findElements(By.xpath("//div[@id='dismiss-button' and @aria-label='Close ad']/div")).get(0).click();
-//		}
+		
 
 		Thread.sleep(3000);
-		myDriverFactory.getDriver().navigate().refresh();
+		driver.navigate().refresh();
 		Thread.sleep(3000);
 		String signUpGuru99Xpath = "//a[contains(@href,'http') and contains(@href,'guru99') and text()='here']";
-		if (myDriverFactory.getDriver().findElements(By.xpath(signUpGuru99Xpath)).size() > 0) {
-			myDriverFactory.getDriver().findElements(By.xpath(signUpGuru99Xpath)).get(0).click();
+		if (!driver.findElements(By.xpath(signUpGuru99Xpath)).isEmpty()) {
+			driver.findElements(By.xpath(signUpGuru99Xpath)).getFirst().click();
 		}
+//		driver.findElement(with(By.))
 
-		myDriverFactory.getDriver().findElement(By.xpath("//input[@name='emailid']")).sendKeys(dateTimeFunction() + "aa@aa.com");
-		myDriverFactory.getDriver().findElement(By.xpath("//input[@name='btnLogin']")).click();
+		driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(dateTimeFunction() + "aa@aa.com");
+		driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
 		Thread.sleep(5000);
-		guruNewCreds[0] = myDriverFactory.getDriver().findElement(By.xpath("//table/tbody/tr/td[text()='User ID :']/parent::tr/td[2]"))
+		guruNewCreds[0] = driver.findElement(By.xpath("//table/tbody/tr/td[text()='User ID :']/parent::tr/td[2]"))
 				.getText().trim();
-		guruNewCreds[1] = myDriverFactory.getDriver().findElement(By.xpath("//table/tbody/tr/td[text()='Password :']/parent::tr/td[2]"))
+		guruNewCreds[1] = driver.findElement(By.xpath("//table/tbody/tr/td[text()='Password :']/parent::tr/td[2]"))
 				.getText().trim();
 
 		return guruNewCreds;

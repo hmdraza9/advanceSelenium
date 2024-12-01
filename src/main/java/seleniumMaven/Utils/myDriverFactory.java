@@ -2,6 +2,7 @@ package seleniumMaven.Utils;
 
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -33,7 +34,9 @@ public class myDriverFactory {
 //    	co.addArguments("--headless");
 		System.out.println("Browser initialization");
 		try {
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
