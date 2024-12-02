@@ -14,7 +14,6 @@ public class myDriverFactory {
 
 	public myDriverFactory() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
-//		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 	}
 
 	public static WebDriver getDriver() {
@@ -36,6 +35,7 @@ public class myDriverFactory {
 		try {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+
 
 		} catch (Exception e) {
 			e.printStackTrace();

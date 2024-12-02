@@ -1,18 +1,22 @@
 package seleniumMaven.pages;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.sql.Driver;
 import java.text.ParseException;
 import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import seleniumMaven.ObjectRepository;
 import seleniumMaven.Utils.DriverUtils;
 import seleniumMaven.Utils.FileOps;
 import seleniumMaven.Utils.PropertyReaderClass;
@@ -24,6 +28,8 @@ import static org.openqa.selenium.support.locators.RelativeLocator.with;
 public class loginPageTest extends testBase {
 
 	WebDriver driver = myDriverFactory.getDriver();
+	ObjectRepository ob = new ObjectRepository();
+
 
 	@AfterTest
 	public void AfterTest() {
@@ -49,11 +55,38 @@ public class loginPageTest extends testBase {
 		}
 	}
 
-	@Test
-	public void loginGuru99Demo() throws IOException, InterruptedException {
+	@Test (priority = -1)
+	public void testScreenshots() throws IOException, InterruptedException {
+		DriverUtils.openUrl("http://www.google.com");
+		DriverUtils.enterKeys(ob.googleSearch, "Selenium");
+		DriverUtils.pressEnter(ob.googleSearch);
+		DriverUtils.takeSnaps("Screenshots/Screenshot.png");
+
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		Thread.sleep(2000);
+		DriverUtils.takeSnaps("Screenshots/Screenshot_full.png");
+
+		List<WebElement> links = driver.findElements(By.xpath("//a[contains(@href,'http')]"));
+		URL url;
+		System.out.println("links size: "+links.size());
+		HttpURLConnection connection;
+		if(!links.isEmpty()){
+			for(WebElement el : links){
+				System.out.println("el.getAttribute(\"href\"): "+el.getAttribute("href"));
+				url = new URL(el.getAttribute("href"));
+				connection = (HttpURLConnection) url.openConnection();
+				connection.setRequestMethod("GET");
+				System.out.println("connection.getResponseCode(): "+connection.getResponseCode());
+			}
+		}
+	}
+
+	@Test (priority = 0)
+	public void testRelativeLocators() throws IOException, InterruptedException {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
 
-		DriverUtils.openUrl(driver, PropertyReaderClass.staticDataPropReader("guru99url"));
+		DriverUtils.openUrl(PropertyReaderClass.staticDataPropReader("guru99url"));
 
 		//relative locator - below
 		driver.findElement(with(By.xpath("//td/input[not(@type='submit' or @type='reset')]"))
@@ -91,6 +124,7 @@ public class loginPageTest extends testBase {
 		Thread.sleep(1234);
 		Thread.sleep(1234);
 
+
 		//relative locator - chaining 1
 		System.out.println(driver.findElement(
 				with(By.xpath("//td/input"))
@@ -106,6 +140,12 @@ public class loginPageTest extends testBase {
 						.above(By.xpath("//input[contains(@onkeyup,'validatepassword()')]"))).getAttribute("onkeyup"));//validateuserid();
 		Thread.sleep(1234);
 		Thread.sleep(1234);
+	}
+
+	@Test (priority = 1)
+	public void loginGuru99Demo() throws IOException, InterruptedException {
+		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
+
 
 		DriverUtils.enterKeys(driver.findElement(By.name("uid")),
 				PropertyReaderClass.dataPropReader("guru99user"));
