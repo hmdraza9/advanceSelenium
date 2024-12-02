@@ -23,9 +23,9 @@ public class testBase {
 	}// AfterClassMethod
 
 
-	public static String dateTimeFunction() {
+	public static String dateTimeFunction(String format) {
 		logger.info(new Throwable().getStackTrace()[0].getMethodName());
-		SimpleDateFormat sdfDate = new SimpleDateFormat("ddMMyyyyhhmmss");
+		SimpleDateFormat sdfDate = new SimpleDateFormat(format); //"ddMMyyyyhhmmss", "dd-MM-yyyy"
 		Date now = new Date();
 		return sdfDate.format(now);
 	}

@@ -9,8 +9,6 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.openqa.selenium.support.locators.RelativeLocator.with;
-
 public class PropertyReaderClass extends testBase {
 
 	public static final WebDriver driver = myDriverFactory.getDriver();
@@ -22,6 +20,8 @@ public class PropertyReaderClass extends testBase {
 		FileReader reader = new FileReader(dataFilePath);
 		Properties pr = new Properties();
 		pr.load(reader);
+		String tempPropValue = pr.getProperty(propKey);
+		System.out.println("Property fetched: "+"\n"+propKey+", "+tempPropValue);
 		return pr.getProperty(propKey);
 
 	}
@@ -32,11 +32,13 @@ public class PropertyReaderClass extends testBase {
 		FileReader reader = new FileReader(siteStatDataFilePath);
 		Properties pr = new Properties();
 		pr.load(reader);
-		return pr.getProperty(propKey);
+		String tempPropValue = pr.getProperty(propKey);
+		System.out.println("Property fetched: "+"\n"+propKey+", "+tempPropValue);
+		return tempPropValue;
 
 	}
 
-	public static boolean guru99CredsValidator(WebDriver driver, String filePath) throws IOException, ParseException {
+	public static boolean isGuru99CredsValid(WebDriver driver, String filePath) throws IOException, ParseException {
 
 		System.out.println("In guru99CredsValidator");
 		String propGuru99CredsDate = dataPropReader("guruCredsDate");
@@ -51,11 +53,14 @@ public class PropertyReaderClass extends testBase {
 
 		if (diffInt > 19) {
 
-			return true;
+			System.out.println("Data invalid");
+			return false;
 
 		}
 
-		return false;
+		System.out.println("Data valid");
+
+		return true;
 	}
 
 	public static String[] guru99NewRegistration() throws IOException, InterruptedException {
@@ -63,8 +68,9 @@ public class PropertyReaderClass extends testBase {
 		System.out.println("In guru99NewRegistration");
 
 		String[] guruNewCreds = new String[2];
-		driver.navigate().to("https://www.google.com/search?q="+PropertyReaderClass.staticDataPropReader("guru99url"));
-		myDriverFactory.getDriver().findElement(By.xpath("//a[contains(@href,'http') and contains(@href,'guru99') and text()='here']"))
+		driver.navigate().to(PropertyReaderClass.staticDataPropReader("guru99url"));
+//		driver.navigate().to("https://www.google.com/search?q="+PropertyReaderClass.staticDataPropReader("guru99url"));
+		driver.findElement(By.xpath("//a[contains(@href,'http') and contains(@href,'guru99') and text()='here']"))
 				.click();
 		
 
@@ -75,9 +81,8 @@ public class PropertyReaderClass extends testBase {
 		if (!driver.findElements(By.xpath(signUpGuru99Xpath)).isEmpty()) {
 			driver.findElements(By.xpath(signUpGuru99Xpath)).getFirst().click();
 		}
-//		driver.findElement(with(By.))
 
-		driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(dateTimeFunction() + "aa@aa.com");
+		driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(dateTimeFunction("ddMMyyyyhhmmss") + "aa@aa.com");
 		driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
 		Thread.sleep(5000);
 		guruNewCreds[0] = driver.findElement(By.xpath("//table/tbody/tr/td[text()='User ID :']/parent::tr/td[2]"))
