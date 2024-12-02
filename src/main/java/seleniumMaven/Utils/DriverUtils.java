@@ -13,12 +13,12 @@ public class DriverUtils extends testBase {
 	public static void click(WebElement el) {
 
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		try {
 			el.click();
 		} catch (Exception e) {
-			testBase.logger.info("Closing driver");
+			logger.info("Closing driver");
 			driver.quit();
 		}
 
@@ -27,7 +27,7 @@ public class DriverUtils extends testBase {
 	public static void click(String xpath) {
 
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		WebElement el = driver.findElement(By.xpath(xpath));
 		try {
@@ -41,7 +41,7 @@ public class DriverUtils extends testBase {
 
 	public static void enterKeys(WebElement el, String str) {
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		try {
 			el.sendKeys(str);
@@ -54,7 +54,7 @@ public class DriverUtils extends testBase {
 
 	public static void enterKeys(String xpath, String value) {
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		WebElement el = driver.findElement(By.xpath(xpath));
 		try {
@@ -68,12 +68,12 @@ public class DriverUtils extends testBase {
 
 	public static void takeSnaps(String path) throws IOException {
 		File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(scr, new File(path));
+		FileUtils.copyFile(scr, new File(path+"_"+dateTimeFunction("ddMMyyyy_hhMMssZZZ")+".png"));
 	}
 
 	public static void pressEnter(String xpath) {
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		WebElement el = driver.findElement(By.xpath(xpath));
 		try {
@@ -87,7 +87,7 @@ public class DriverUtils extends testBase {
 
 	public static String getLabel(WebElement el) {
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		String textLabel = "";
 		try {
@@ -103,7 +103,7 @@ public class DriverUtils extends testBase {
 
 	public static void openUrl(String url) {
 
-		testBase.logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
+		logger.info("new Throwable().getStackTrace()[0].getMethodName(): "
 				+ new Throwable().getStackTrace()[0].getMethodName());
 		try {
 			myDriverFactory.getDriver().get(url);

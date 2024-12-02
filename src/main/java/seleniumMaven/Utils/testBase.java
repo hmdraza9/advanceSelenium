@@ -30,11 +30,5 @@ public class testBase {
 		return sdfDate.format(now);
 	}
 
-	public static String dateFunction() {
-		logger.info(new Throwable().getStackTrace()[0].getMethodName());
-		SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy");
-		Date now = new Date();
-		return sdfDate.format(now);
-	}
 }
 

@@ -1,14 +1,11 @@
 package seleniumMaven.pages;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Driver;
 import java.text.ParseException;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -60,12 +57,12 @@ public class loginPageTest extends testBase {
 		DriverUtils.openUrl("http://www.google.com");
 		DriverUtils.enterKeys(ob.googleSearch, "Selenium");
 		DriverUtils.pressEnter(ob.googleSearch);
-		DriverUtils.takeSnaps("Screenshots/Screenshot.png");
+		DriverUtils.takeSnaps("Screenshots/Screenshot");
 
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 		Thread.sleep(2000);
-		DriverUtils.takeSnaps("Screenshots/Screenshot_full.png");
+		DriverUtils.takeSnaps("Screenshots/Screenshot_full");
 
 		List<WebElement> links = driver.findElements(By.xpath("//a[contains(@href,'http')]"));
 		URL url;
