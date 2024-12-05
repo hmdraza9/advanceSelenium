@@ -52,8 +52,14 @@ public class loginPageTest extends testBase {
 		}
 	}
 
+//	@BeforeTest
+//	(Priority=1)
+//	public void BeforeTest2(){
+//		System.out.println("Second Before Test");
+//	}
+
 	@Test (priority = -1)
-	public void testScreenshots() throws IOException, InterruptedException {
+	public void findBrokenLinks() throws IOException, InterruptedException {
 		DriverUtils.openUrl("http://www.google.com");
 		DriverUtils.enterKeys(ob.googleSearch, "Selenium");
 		DriverUtils.pressEnter(ob.googleSearch);
