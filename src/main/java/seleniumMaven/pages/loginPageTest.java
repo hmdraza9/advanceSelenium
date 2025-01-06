@@ -67,7 +67,7 @@ public class loginPageTest extends testBase {
 
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-		Thread.sleep(2000);
+		Thread.sleep(123);
 		DriverUtils.takeSnaps("Screenshots/Screenshot_full");
 
 		List<WebElement> links = driver.findElements(By.xpath("//a[contains(@href,'http')]"));
