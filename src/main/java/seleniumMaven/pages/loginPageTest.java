@@ -41,7 +41,7 @@ public class loginPageTest extends testBase {
             String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistration();
             List<String> propList = FileOps.readPropFileAsList(guru99Creds);
             String tempText = dateTimeFunction("dd-MM-yyyy")+"123456";
-            propList.add("secretKeyGuru99=" + tempText);
+            propList.add("USEDFORSECURITY=" + tempText);
             FileOps.savePropNewFile(guru99Creds, propList);
             propList.add("guru99user=" + encryptedText(guru99NewCreds[0]));
             propList.add("guru99password=" + encryptedText(guru99NewCreds[1]));

@@ -15,7 +15,6 @@ public class testBase {
 	public static final String guru99Creds = classPath + "//Data//dataFile.properties";
 	public static final String guru99URL = classPath + "//siteStaticData//siteStaticData.properties";
 	public static final String propsFilePath = classPath + "//resources//props.properties";
-	public static final String secretKeyGuru99 = "guru991234567890";
 
 
 	public void BrowserQuit() {
@@ -33,11 +32,11 @@ public class testBase {
 	}
 
 	public static String encryptedText(String text) throws IOException {
-		return PasswordEncryption.encrypt(text, PropertyReaderClass.dataPropReader("secretKeyGuru99"));
+		return PasswordEncryption.encrypt(text, PropertyReaderClass.dataPropReader("USEDFORSECURITY"));
 	}
 
 	public static String decryptedText(String text) throws IOException {
-		return PasswordEncryption.decrypt(text, PropertyReaderClass.dataPropReader("secretKeyGuru99"));
+		return PasswordEncryption.decrypt(text, PropertyReaderClass.dataPropReader("USEDFORSECURITY"));
 	}
 
 }
