@@ -17,7 +17,7 @@ public class DataStoreUtilizeDemo extends testBase{
 		System.out.println(DataStore.getPass());
 		
 //		DataStore nn = new DataStore();
-		FileOps.savePropNewFile(dataFilePath, FileOps.readPropFileAsList(dataFilePath));
+		FileOps.savePropNewFile(guru99Creds, FileOps.readPropFileAsList(guru99Creds));
 		
 	}
 
