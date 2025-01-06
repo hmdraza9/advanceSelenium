@@ -1,5 +1,6 @@
 package seleniumMaven.Utils;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,7 +16,6 @@ public class PropertyReaderClass extends testBase {
 	
 	
 	public static String dataPropReader(String propKey) throws IOException {
-		// TODO Auto-generated method stub
 
 		FileReader reader = new FileReader(dataFilePath);
 		Properties pr = new Properties();
@@ -24,6 +24,16 @@ public class PropertyReaderClass extends testBase {
 		System.out.println("Property fetched: "+"\n"+propKey+", "+tempPropValue);
 		return pr.getProperty(propKey);
 
+	}
+
+	public static String configPropReader(String propKey) throws IOException {
+
+		FileReader reader = new FileReader(propsFilePath);
+		Properties pr = new Properties();
+		pr.load(reader);
+		String tempPropValue = pr.getProperty(propKey);
+		System.out.println("Property fetched: "+"\n"+propKey+", "+tempPropValue);
+		return pr.getProperty(propKey);
 	}
 
 	public static String staticDataPropReader(String propKey) throws IOException {

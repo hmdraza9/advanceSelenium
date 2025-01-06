@@ -13,6 +13,7 @@ public class testBase {
 
 	public static String dataFilePath = classPath + "//Data//dataFile.properties";
 	public static String siteStatDataFilePath = classPath + "//siteStaticData//siteStaticData.properties";
+	public static String propsFilePath = classPath + "//resources//props.properties";
 	public static String userHome = System.getProperty("user.home");
 
 

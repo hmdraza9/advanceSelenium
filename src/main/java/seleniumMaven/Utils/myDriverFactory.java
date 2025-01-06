@@ -1,5 +1,6 @@
 package seleniumMaven.Utils;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -30,9 +31,15 @@ public class myDriverFactory {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
 		new myDriverFactory();
 		co = new ChromeOptions();
-//    	co.addArguments("--headless");
-		System.out.println("Browser initialization");
-		try {
+        try {
+            if(PropertyReaderClass.configPropReader("headless").contentEquals("true")){
+    	co.addArguments("--headless");
+			}
+            System.out.println("Browser initialization");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 
