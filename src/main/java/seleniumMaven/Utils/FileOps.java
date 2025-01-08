@@ -34,7 +34,7 @@ public class FileOps extends testBase {
 			}
 			br.close();
 		}
-		FileUtils.copyFile(new File(filePath), new File(classPath + "\\Data\\DataBkp\\dataFile." + dateTimeFunction("ddMMyyyyhhmmss")+".properties"));
+		FileUtils.copyFile(new File(filePath), new File(classPath + "//Data//DataBkp//dataFile." + dateTimeFunction("ddMMyyyyhhmmss")+".properties"));
 
 		return propList;
 	}

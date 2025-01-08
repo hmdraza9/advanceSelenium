@@ -40,8 +40,8 @@ public class loginPageTest extends testBase {
         if (!PropertyReaderClass.isGuru99CredsValid(driver, guru99Creds)) {
             String[] guru99NewCreds = PropertyReaderClass.guru99NewRegistration();
             List<String> propList = FileOps.readPropFileAsList(guru99Creds);
-            String tempText = dateTimeFunction("dd-MM-yyyy")+"123456";
-            propList.add("USEDFORSECURITY=" + tempText);
+            String tempText = dateTimeFunction("dd-MM-yyyy")+"_12345";
+            propList.add("USEDFORSECURITY=" + tempText.substring(0, 16));
             FileOps.savePropNewFile(guru99Creds, propList);
             propList.add("guru99user=" + encryptedText(guru99NewCreds[0]));
             propList.add("guru99password=" + encryptedText(guru99NewCreds[1]));

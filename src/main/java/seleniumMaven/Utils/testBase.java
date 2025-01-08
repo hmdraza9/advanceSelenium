@@ -8,7 +8,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 public class testBase {
-	public static PropertyReaderClass pr;
 	public static final String classPath = System.getProperty("user.dir");
 	public static final Logger logger = LogManager.getLogger(testBase.class.getName());
 
