@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class myDriverFactory {
 
     private static final WebDriver[] driverBox = new WebDriver[1];
+	private static WebDriver driver;
 
 	public myDriverFactory() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
@@ -43,16 +44,14 @@ public class myDriverFactory {
 					WebDriverManager.chromedriver().setup();
 					driverBox[0] = new ChromeDriver();
 				}
-
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		driver = driverBox[0];
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-		driverBox[0].manage().window().maximize();
-		driverBox[0].manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-		return driverBox[0];
+		return driver;
 	}
 
 }

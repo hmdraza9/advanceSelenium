@@ -81,7 +81,7 @@ public class LoginTests extends testBase {
     }
 
 
-    @Test(priority = -1, enabled = false)
+    @Test(priority = -1, enabled = true)
     public void findBrokenLinks() throws IOException, InterruptedException {
         DriverUtils.openUrl("http://www.google.com");
         DriverUtils.enterKeys(ob.googleSearch, "Selenium");
@@ -164,7 +164,6 @@ public class LoginTests extends testBase {
                 with(By.xpath("//td/input"))
                         .near(By.name("btnLogin"))
                         .above(By.xpath("//input[contains(@onkeyup,'validatepassword()')]"))).getAttribute("onkeyup"));//validateuserid();
-        Thread.sleep(1234);
         Thread.sleep(1234);
     }
 
