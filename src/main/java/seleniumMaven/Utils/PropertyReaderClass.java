@@ -62,7 +62,7 @@ public class PropertyReaderClass extends testBase {
 
 		if (diffInt > 19) {
 
-			System.out.println("Data invalid");
+			System.out.println("Data is invalid as Date Created is older than 19 days, creating new credentials...");
 			return false;
 
 		}

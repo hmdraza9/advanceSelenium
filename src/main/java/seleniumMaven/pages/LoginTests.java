@@ -49,6 +49,7 @@ public class LoginTests extends testBase {
             FileOps.savePropNewFile(guru99Creds, propList);
 
         }
+        driver.navigate().to(PropertyReaderClass.staticDataPropReader("guru99url"));
     }
 
     @Test(priority=2, enabled = false)
@@ -107,7 +108,7 @@ public class LoginTests extends testBase {
         }
     }
 
-    @Test(priority = 0, enabled = false)
+    @Test(priority = 0, enabled = true)
     public void testRelativeLocators() throws IOException, InterruptedException {
         testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
 
