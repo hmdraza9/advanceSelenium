@@ -11,8 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class myDriverFactory {
 
-	private static ChromeOptions co;
-	private static WebDriver[] driverBox = new WebDriver[1];
+    private static final WebDriver[] driverBox = new WebDriver[1];
 
 	public myDriverFactory() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
@@ -30,7 +29,7 @@ public class myDriverFactory {
 
 	private static WebDriver BrowserInitSetup() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
-		co = new ChromeOptions();
+        ChromeOptions co = new ChromeOptions();
         try {
             if(PropertyReaderClass.configPropReader("headless").contentEquals("true")){
     	co.addArguments("--headless");
