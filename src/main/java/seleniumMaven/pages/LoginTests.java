@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.util.List;
 
 import org.openqa.selenium.*;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -18,7 +19,7 @@ import seleniumMaven.Utils.*;
 
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
-public class loginPageTest extends testBase {
+public class LoginTests extends testBase {
 
     WebDriver driver = myDriverFactory.getDriver();
     ObjectRepository ob = new ObjectRepository();
@@ -26,13 +27,12 @@ public class loginPageTest extends testBase {
 
     @AfterTest
     public void AfterTest() {
-        System.out.println("new Throwable().getStackTrace()[0].getMethodName(): "
-                + new Throwable().getStackTrace()[0].getMethodName());
         System.out.println("In After test");
     }
 
     @BeforeTest
     public void BeforeTest() throws InterruptedException, IOException, ParseException {
+
         driver.navigate().to(PropertyReaderClass.staticDataPropReader("guru99url"));
         testBase.logger.info("loginPageTest logged in, Title: " + driver.getTitle());
 
@@ -49,6 +49,34 @@ public class loginPageTest extends testBase {
             FileOps.savePropNewFile(guru99Creds, propList);
 
         }
+    }
+
+    @Test(priority=2, enabled = false)
+    public void shadowRootTest(){
+
+        driver.get("http://watir.com/examples/shadow_dom.html");
+//        driver.findElement(By.xpath("//div[@class='ipalBtn']")).click(); // for URL - https://www.icicibank.com/
+        // 1. Access the Shadow Host
+        WebElement shadowHost = driver.findElement(By.id("shadow_host"));
+
+        System.out.println("shadowHost.getAttribute(\"id\"): "+shadowHost.getAttribute("id"));
+        System.out.println("shadowHost.getAttribute(\"innerHTML\"): "+shadowHost.getAttribute("outerHTML"));
+
+        // 2. Access the Shadow Root
+        SearchContext shadowRoot = shadowHost.getShadowRoot();
+
+
+        // 3. Query within the Shadow Root
+        // Example: Finding an element with class 'bot-message' inside the Shadow DOM
+        WebElement botMessage = shadowHost.findElement(By.cssSelector("div"));
+//        WebElement botMessage = shadowRoot.findElement(By.cssSelector("div"));
+        System.out.println("botMessage.getAttribute(\"id\"): "+botMessage.getAttribute("id"));
+//        botMessage = shadowRoot.findElement(By.xpath("//div"));
+//        System.out.println("botMessage.getAttribute(\"id\"): "+botMessage.getAttribute("id"));
+        botMessage = shadowRoot.findElement(By.xpath("//div/parent::*"));
+        System.out.println("botMessage.getAttribute(\"id\"): "+botMessage.getAttribute("id"));
+
+        System.exit(1);
     }
 
 

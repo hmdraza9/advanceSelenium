@@ -3,12 +3,12 @@
 <suite name="Suite">
 	<test name="TestLogin">
 		<classes>
-			<class name="seleniumMaven.pages.loginPageTest" />
+			<class name="seleniumMaven.pages.LoginTests" />
 		</classes>
 	</test>
 	<test name="TestReg">
 		<classes>
-			<class name="seleniumMaven.pages.regPageTest" />
+			<class name="seleniumMaven.pages.RegistrationPageTest" />
 		</classes>
 	</test>
 </suite>

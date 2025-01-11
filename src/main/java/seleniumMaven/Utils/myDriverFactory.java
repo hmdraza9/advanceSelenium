@@ -1,6 +1,7 @@
 package seleniumMaven.Utils;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -12,6 +13,7 @@ public class myDriverFactory {
 
 	private static WebDriver driver = null;
 	private static ChromeOptions co;
+//	WebDriver[] driverBox = new WebDriver[1];
 
 	public myDriverFactory() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
@@ -24,12 +26,12 @@ public class myDriverFactory {
 			driver = BrowserInitSetup();
 		}
 
+		System.out.println("Returning driver: "+driver);
 		return driver;
 	}
 
 	private static WebDriver BrowserInitSetup() {
 		testBase.logger.info(new Throwable().getStackTrace()[0].getMethodName());
-		new myDriverFactory();
 		co = new ChromeOptions();
         try {
             if(PropertyReaderClass.configPropReader("headless").contentEquals("true")){
@@ -49,7 +51,7 @@ public class myDriverFactory {
 		}
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 		return driver;
 	}
