@@ -20,14 +20,11 @@ public class myDriverFactory {
 
 	public static WebDriver getDriver() {
 
-		System.out.println("Existing driver : "+driverBox[0]);
 		if (driverBox[0]==null) {
 
-			System.out.println("Driver is null : "+driverBox[0]);
 			driverBox[0] = BrowserInitSetup();
 		}
 
-		System.out.println("Returning driver: "+driverBox[0]);
 		return driverBox[0];
 	}
 
