@@ -7,7 +7,6 @@ import java.text.ParseException;
 import java.util.List;
 
 import org.openqa.selenium.*;
-import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -43,8 +42,8 @@ public class LoginTests extends testBase {
             String tempText = dateTimeFunction("dd-MM-yyyy")+"_12345";
             propList.add("USEDFORSECURITY=" + tempText.substring(0, 16));
             FileOps.savePropNewFile(guru99Creds, propList);
-            propList.add("guru99user=" + encryptedText(guru99NewCreds[0]));
-            propList.add("guru99password=" + encryptedText(guru99NewCreds[1]));
+            propList.add("guru99user=" + getEncryptedText(guru99NewCreds[0], null));
+            propList.add("guru99password=" + getEncryptedText(guru99NewCreds[1], null));
             propList.add("guruCredsDate=" + dateTimeFunction("dd-MM-yyyy"));
             FileOps.savePropNewFile(guru99Creds, propList);
 
@@ -173,9 +172,9 @@ public class LoginTests extends testBase {
 
 
         DriverUtils.enterKeys(driver.findElement(By.name("uid")),
-                decryptedText(PropertyReaderClass.dataPropReader("guru99user")));
+                decryptedText(PropertyReaderClass.dataPropReader("guru99user"), null));
         DriverUtils.enterKeys(driver.findElement(By.name("password")),
-                decryptedText(PropertyReaderClass.dataPropReader("guru99password")));
+                decryptedText(PropertyReaderClass.dataPropReader("guru99password"), null));
         DriverUtils.click(driver.findElement(By.name("btnLogin")));
     }
 

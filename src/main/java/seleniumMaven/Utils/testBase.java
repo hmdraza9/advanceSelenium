@@ -30,12 +30,20 @@ public class testBase {
 		return sdfDate.format(now);
 	}
 
-	public static String encryptedText(String text) throws IOException {
-		return PasswordEncryption.encrypt(text, PropertyReaderClass.dataPropReader("USEDFORSECURITY"));
+	public static String getEncryptedText(String text, String secretKey) throws IOException {
+		if(secretKey==null|| secretKey.isEmpty()){
+			secretKey = PropertyReaderClass.dataPropReader("USEDFORSECURITY");
+		}
+		return PasswordEncryption.encrypt(text, secretKey);
 	}
 
-	public static String decryptedText(String text) throws IOException {
-		return PasswordEncryption.decrypt(text, PropertyReaderClass.dataPropReader("USEDFORSECURITY"));
+	public static String decryptedText(String text, String secretKey) throws IOException {
+
+		if(secretKey==null|| secretKey.isEmpty()){
+			secretKey = PropertyReaderClass.dataPropReader("USEDFORSECURITY");
+		}
+
+		return PasswordEncryption.decrypt(text, secretKey);
 	}
 
 }
